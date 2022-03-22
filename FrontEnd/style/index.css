@@ -1,0 +1,117 @@
+body {
+    width: 100%;
+    height: 100vh;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    font-family: 'FSLucasPro';
+    background-color: rgb(255, 255, 255);; 
+}
+
+@font-face {
+    font-family: 'FSLucasPro';
+    src: url('fonts/FSLucasPro-Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+ ::-webkit-scrollbar-track {
+    background: rgba(42, 184, 61, 0);
+}
+
+ ::-webkit-scrollbar-thumb {
+    background: rgb(137, 224, 134);
+}
+
+ ::-webkit-scrollbar-thumb:hover {
+    background: rgb(182, 235, 168);
+}
+
+.user-select-none {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+.body-container {
+    display: grid;
+    height: 100vh;
+    width: 80%;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    justify-content: center;
+    align-content: center;
+}
+
+.child-container {
+    display: grid; 
+    width: 120px;
+    height: 120px;
+    justify-content: center; 
+    align-content: center;
+    font-size: 73px;
+    font-weight: 600;
+    margin: 5px;
+}
+
+.btn-container {
+    position: absolute;
+    font-weight: 600;
+    font-size: 73px;
+    top: 0;
+    left: 250px;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin: 30px;
+}
+
+.btn-container .greeting {
+    width: 1600px;
+    height: auto;
+    font-size: 60px;
+    font-weight: bold;
+    color: #fcce0b;
+    padding: 10px;
+    margin-right: 250px;
+    margin-bottom: 400px;
+    text-align: center;
+    justify-content: center;
+}
+
+#output_dialog {
+    width: 1600px;
+    height: 400px;
+    margin-top: 320px;
+    z-index: 10;
+    background-color: white;
+    display: none;
+    text-align: center;
+}
+
+#full_name_text {
+    font-size: 60px;
+    font-weight: bold;
+    color: #25a719;
+    /*padding: 50px;*/
+    /*margin: 30px;*/
+    padding-right: 300px;
+    /*text-align: center;*/
+    justify-content: center;
+}
+
+.message {
+    width: 600px;
+    font-size: 20px;
+    color: #25a719;
+    text-align: center;
+}
