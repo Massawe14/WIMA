@@ -3,15 +3,8 @@ body {
     height: 100vh;
     overflow-y: hidden;
     overflow-x: hidden;
-    font-family: 'FSLucasPro';
+    font-family: 'FSLucasPro', sans-serif;
     background-color: rgb(255, 255, 255);; 
-}
-
-@font-face {
-    font-family: 'FSLucasPro';
-    src: url('fonts/FSLucasPro-Bold.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
 }
 
 ::-webkit-scrollbar {

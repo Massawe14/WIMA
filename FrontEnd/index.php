@@ -92,11 +92,14 @@
                             const full_name = obj.full_name;
                             const phone_number = obj.phone_number;
                             const company_name = obj.company_name;
+                            const position = obj.position;
+                            const table_number = obj.table_number;
                             console.log('fullname: ', full_name);
                             console.log('phone number: ', phone_number);
                             console.log('company name: ', company_name);
                             console.log('position: ', position);
-                            showOutput(full_name, phone_number, company_name);
+                            console.log('table_number: ', table_number);
+                            showOutput(full_name, phone_number, company_name, position, table_number);
                         } catch (e) {
                             console.log(e);
                         }
@@ -105,7 +108,7 @@
                     txt += char;
                 }
             });
-            function showOutput(full_name, phone_number, company) {
+            function showOutput(full_name, phone_number, company, position, table_number) {
                 speech.text = "Welcome";
                 window.speechSynthesis.speak(speech);
                 var dialog = document.getElementById("output_dialog");
@@ -121,6 +124,5 @@
             console.log(e);
         }
     </script>
-    <script src="routes/bubble.js" type="text/javascript"></script>
 </body>
 </html>
