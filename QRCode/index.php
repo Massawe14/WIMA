@@ -149,7 +149,7 @@ span.psw {
 }
 #qrSucc
 {
-  width: 380px;
+  width: 370px;
   height: 800px;
   margin:  8px 8px 20px 8px;
   text-align: center;
@@ -159,7 +159,7 @@ span.psw {
   flex-direction: column;
 }
 #result {
-    width: 380px;
+    width: 370px;
     height: 660px;
     margin-bottom: 20px !important;
     background: white;
@@ -170,7 +170,7 @@ span.psw {
     margin: 0 !important;
 }
 #img {
-    width: 380;
+    width: 370;
     height: 660px;
     position:  absolute;
     top: 0;
@@ -182,7 +182,7 @@ span.psw {
     margin: 0 !important;
 }
 #contents {
-    width: 380px;
+    width: 370px;
     height: 660px;
     position:  absolute;
     z-index: 1;
@@ -194,6 +194,11 @@ span.psw {
     align-items: center;
 }
 #name {
+    margin-bottom: -10px;
+    align-items: center;
+    justify-content: center;
+}
+#table {
     margin-bottom: -60px;
     align-items: center;
     justify-content: center;
@@ -274,16 +279,20 @@ footer {
 </head>
 <body>
     <?php 
+      error_reporting(0);
+
       include "meRaviQr/qrlib.php";
       include "config.php";
+
       if(isset($_POST['create']))
       {
         $fullname =  $_POST['fullname'];
         $phone_number = $_POST['phone_number'];
         $company = $_POST['company_name'];
         $position = $_POST['position'];
+        $event_id = $_GET['event_id'];
         $qrImgName = "$fullname".rand();
-        if($fullname == "" && $phone_number == "" && $company == "" && $position == "")
+        if($fullname == "" && $phone_number == "" && $company == "" && $position == "" && $event_id == "")
         {
           echo "<script>alert('Please Fill all fields');</script>";
         }
@@ -305,19 +314,35 @@ footer {
         }
         else
         {
-          $qrimage = $qrImgName.".png";
-          $qrs = QRcode::png($qrimage,"userQr/$qrImgName.png","H","3","3");
-          $workDir = $_SERVER['HTTP_HOST'];
-          $qrlink = $workDir."/qrcode".$qrImgName.".png";
-          $insQr = $meravi->insertQr($fullname,$phone_number,$company,$position,$qrimage,$qrlink);
-          if($insQr==true)
-          {
-            echo "<script>alert('Thank You $fullname. Success Create Your QR Code'); window.location='index.php?success=$qrimage&fname=$fullname';</script>";
-          }
-          else
-          {
-            echo "<script>alert('cant create QR Code');</script>";
-          }
+            $sql = $meravi->select($event_id);
+            if (mysqli_num_rows($sql) > 0) {
+                foreach ($sql as $row) {
+                    $table_number = $row['table_number'];
+                    $tickets = $row['tickets'];
+                    $already = $row['already'];
+
+                    if ($already < $tickets) {
+                        $qrimage = $qrImgName.".png";
+                        $qrs = QRcode::png($qrimage,"userQr/$qrImgName.png","H","3","3");
+                        $workDir = $_SERVER['HTTP_HOST'];
+                        $qrlink = $workDir."/qrcode".$qrImgName.".png";
+                        $insQr = $meravi->insertQr($fullname,$phone_number,$company,$position,$qrimage,$qrlink,$event_id,$table_number);
+                        if($insQr==true)
+                        {
+                            echo "<script>alert('Thank You $fullname. Success Create Your QR Code'); window.location='index.php?success=$qrimage&fname=$fullname&table_number=$table_number';</script>";
+                            $already = $already + 1;
+                            $sql = $meravi->update($already,$event_id);
+                        }
+                        else
+                        {
+                            echo "<script>alert('cant create QR Code');</script>";
+                        }
+                    }
+                    else {
+                        echo "<script>alert('You reach the limit')</script>";
+                    }
+                }
+            }
         }
      }
     ?>
@@ -330,7 +355,8 @@ footer {
         <img id="img" src="assets/wima_gala_invitation.png" />  
         <div id="contents">
           <img id="qr" src="userQr/<?php echo $_GET['success']; ?>" alt="">
-          <p id="name" style="font-family: 'FSLucasPro'; color: white; font-weight: 200; font-size: 12px;"><?php echo strtoupper($_GET['fname']); ?></p>
+          <p id="name" style="font-family: 'FSLucasPro'; color: white; font-weight: 200; font-size: 28px;"><?php echo strtoupper($_GET['fname']); ?></p>
+          <p id="table" style="font-family: 'FSLucasPro'; color: white; font-weight: 200; font-size: 18px;"><?php echo strtoupper('Table Number '.$_GET['table_number']); ?></p>
         </div>
       </div>
       <div id="output" hidden></div>
@@ -345,6 +371,7 @@ else
   <form class="modal-content animate" method="post" enctype="multipart/form-data">
     <div class="container">
       <h2 align="center" style="text-transform: uppercase; color: #fcce0b;">You Are Welcome To WIMA Event</h2>
+      <input type="hidden" name="event_id" value="<?php echo $_GET['event_id']; ?>">
       <label for="fname"><b>Full Name</b></label>
       <input type="text" name="fullname" value="<?php if(isset($_POST['create'])){ echo $_POST['fullname']; } ?>" placeholder="Enter Your Fullname" required/>
       <label for="phone_number"><b>Phone Number</b></label>

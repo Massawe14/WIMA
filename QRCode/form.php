@@ -1,3 +1,6 @@
+<?php  
+  error_reporting(0);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,7 +29,8 @@
 		}
 
 		/* Full-width input fields */
-		input[type=text], input[type=email] {
+		input[type=text], input[type=number],
+		input[type=email] {
 		    width: 100%;
 		    padding: 12px 20px;
 		    margin: 8px 0;
@@ -66,8 +70,12 @@
 			<div class="container">
 		      <label for="email"><b>Email</b></label>
 		      <input type="email" name="email" value="<?php if(isset($_POST['create'])){ echo $_POST['email']; } ?>" placeholder="Enter Your Email" required/>
-		      <label for="phone_number"><b>Phone Number</b></label>
-		      <input type="text" name="phone_number" value="<?php if(isset($_POST['create'])){ echo $_POST['phone_number']; } ?>" placeholder="Enter Your Phone Number" required/>
+		      <label for="table_number"><b>Table Number</b></label>
+		      <input type="number" name="table_number" value="<?php if(isset($_POST['create'])){ echo $_POST['table_number']; } ?>" placeholder="Enter Your Table Number" required/>
+		      <label for="tickets"><b>Tickets</b></label>
+		      <input type="number" name="tickets" value="<?php if(isset($_POST['create'])){ echo $_POST['tickets']; } ?>" placeholder="Number of Tickets" required/>
+		      <label for="link"><b>Your Link</b></label>
+		      <input type="text" value="<?php echo 'http://localhost/WIMA/QRCode/index.php?event_id='.$_GET['event_id']; ?>" readonly/>
 		      <input type="submit" value="Submit" name="create">
 		    </div>
 		</form>
