@@ -12,18 +12,20 @@
     $phone_number = "";
     $company_name = "";
     $position = "";
+    $table_number = "";
 
     foreach ($result as $row) {
       $full_name = $row['full_name'];
       $phone_number = $row['phone_number'];
       $company_name = $row['company_name'];
       $position = $row['position'];
+      $table_number = $row['table_number'];
     }
 
-    if ($full_name != "" && $phone_number != "" && $company_name != "" && $position != "") {
+    if ($full_name != "" && $phone_number != "" && $company_name != "" && $position != "" && $table_number != "") {
 
-      if (date("d-m-Y") === "13-12-2021") {
-        $query = "INSERT INTO `monday`(`full_name`, `branch_name`, `zone`) VALUES ('$full_name', '$branch_name', '$zone')";
+      if (date("d-m-Y") === "26-03-2022") {
+        $query = "INSERT INTO `eventlist`(`full_name`, `phone_number`, `company_name`, `position`, `table_number`) VALUES ('$full_name', '$branch_name', '$zone')";
         $result = mysqli_query($conn, $query);
         if ($result) {
           echo '{"full_name": "' .$full_name . '"}';
@@ -31,8 +33,8 @@
         else{
           echo "Not attend";
         }
-      }else if (date("d-m-Y") === "14-12-2021") {
-        $query = "INSERT INTO `eventlist`(`full_name`, `branch_name`, `zone`) VALUES ('$full_name', '$branch_name', '$zone')";
+      }else if (date("d-m-Y") === "27-03-2022") {
+        $query = "INSERT INTO `eventlist`(`full_name`, `phone_number`, `company_name`, `position`, `table_number`) VALUES ('$full_name', '$branch_name', '$zone')";
         $result = mysqli_query($conn, $query);
         if ($result) {
           echo '{"full_name": "' .$full_name . '"}';
