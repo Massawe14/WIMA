@@ -280,7 +280,7 @@ footer {
       {
         $fullname =  $_POST['fullname'];
         $phone_number = $_POST['phone_number'];
-        $company_name = $_POST['company_name'];
+        $company = $_POST['company_name'];
         $position = $_POST['position'];
         $qrImgName = "$fullname".rand();
         if($fullname == "" && $phone_number == "" && $company == "" && $position == "")
@@ -295,7 +295,7 @@ footer {
         {
           echo "<script>alert('Please Enter Your Phone Number');</script>";
         }
-        elseif($company_name == "")
+        elseif($company == "")
         {
           echo "<script>alert('Please Enter Your Company Name');</script>";
         }
@@ -309,7 +309,7 @@ footer {
           $qrs = QRcode::png($qrimage,"userQr/$qrImgName.png","H","3","3");
           $workDir = $_SERVER['HTTP_HOST'];
           $qrlink = $workDir."/qrcode".$qrImgName.".png";
-          $insQr = $meravi->insertQr($fullname,$phone_number,$company_name,$position,$qrimage,$qrlink);
+          $insQr = $meravi->insertQr($fullname,$phone_number,$company,$position,$qrimage,$qrlink);
           if($insQr==true)
           {
             echo "<script>alert('Thank You $fullname. Success Create Your QR Code'); window.location='index.php?success=$qrimage&fname=$fullname';</script>";
@@ -346,7 +346,7 @@ else
     <div class="container">
       <h2 align="center" style="text-transform: uppercase; color: #fcce0b;">You Are Welcome To WIMA Event</h2>
       <label for="fname"><b>Full Name</b></label>
-      <input type="text" name="fullname" value="<?php if(isset($_POST['create'])){ echo $_POST['fullname']; } ?>" data-max="3" onkeyup="check(this);" placeholder="Enter Your Fullname" required/>
+      <input type="text" name="fullname" value="<?php if(isset($_POST['create'])){ echo $_POST['fullname']; } ?>" placeholder="Enter Your Fullname" required/>
       <label for="phone_number"><b>Phone Number</b></label>
       <input type="text" name="phone_number" value="<?php if(isset($_POST['create'])){ echo $_POST['phone_number']; } ?>" placeholder="Enter Your Phone Number" required/>
       <label for="company"><b>Company Name</b></label>
@@ -383,14 +383,6 @@ else
         a.href = cvs.toDataURL();
         a.download = "invation.png";
     });
-</script>
-<script>
-    function check(obj) {
-        var max = obj.getAttribute("data-max");
-        if (parseInt(obj.value) > parseInt(max)) {
-            alert("Exceed the maximum number");
-        }
-    }
 </script>
 </body>
 </html>

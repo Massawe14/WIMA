@@ -14,17 +14,15 @@ class RaviKoQr
   		die("connection failed");
   	}
   }
- 	public function insertQr($fullname,$phone_number,$company_name,$position,$qrimage,$qrlink)
+ 	public function insertQr($fullname,$phone_number,$company,$position,$qrimage,$qrlink)
  	{
- 			$sql = "INSERT INTO qr_codes(full_name,phone_number,company_name,position,qrImage,qrlink) VALUES('$fullname','$phone_number','$company_name','$position','$qrimage','$qrlink')";
- 			$query = $this->conn->query($sql);
- 			return $query;
-
- 	
+		$sql = "REPLACE INTO `qr_codes`(full_name,phone_number,company_name,position,qrImage,qrlink) VALUES('$fullname','$phone_number','$company','$position','$qrimage','$qrlink')";
+		$query = $this->conn->query($sql);
+		return $query;
  	}
  	public function displayImg()
  	{
- 		$sql = "SELECT qrImage,qrlink from qr_codes where qrImage='$qrimage'";
+ 		$sql = "SELECT qrImage,qrlink FROM qr_codes WHERE qrImage='$qrimage'";
  	}
 }
 $meravi = new RaviKoQr();
