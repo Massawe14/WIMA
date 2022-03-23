@@ -355,7 +355,7 @@ footer {
         <img id="img" src="assets/wima_gala_invitation.png" />  
         <div id="contents">
           <img id="qr" src="userQr/<?php echo $_GET['success']; ?>" alt="">
-          <p id="name" style="font-family: 'FSLucasPro'; color: white; font-weight: 200; font-size: 20px;"><?php echo strtoupper($_GET['fname']); ?></p>
+          <p id="name" style="font-family: 'FSLucasPro'; color: white; font-weight: 200; font-size: 22px;"><?php echo strtoupper($_GET['fname']); ?></p>
           <p id="table" style="font-family: 'FSLucasPro'; color: white; font-weight: 200; font-size: 18px;"><?php echo strtoupper('Table Number '.$_GET['table_number']); ?></p>
         </div>
       </div>
