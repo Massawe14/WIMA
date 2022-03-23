@@ -194,11 +194,6 @@ span.psw {
     align-items: center;
 }
 #name {
-    margin-bottom: -10px;
-    align-items: center;
-    justify-content: center;
-}
-#table {
     margin-bottom: -60px;
     align-items: center;
     justify-content: center;
@@ -355,8 +350,7 @@ footer {
         <img id="img" src="assets/wima_gala_invitation.png" />  
         <div id="contents">
           <img id="qr" src="userQr/<?php echo $_GET['success']; ?>" alt="">
-          <p id="name" style="font-family: 'FSLucasPro'; color: white; font-weight: 200; font-size: 22px;"><?php echo strtoupper($_GET['fname']); ?></p>
-          <p id="table" style="font-family: 'FSLucasPro'; color: white; font-weight: 200; font-size: 18px;"><?php echo strtoupper('Table Number '.$_GET['table_number']); ?></p>
+          <p id="name" style="font-family: 'FSLucasPro'; color: white; font-weight: 200; font-size: 20px;"><?php echo strtoupper($_GET['fname']); ?></p>
         </div>
       </div>
       <div id="output" hidden></div>
@@ -370,7 +364,7 @@ else
 <div id="id01" class="modal">
   <form class="modal-content animate" method="post" enctype="multipart/form-data">
     <div class="container">
-      <h2 align="center" style="text-transform: uppercase; color: #fcce0b;">You Are Welcome To WIMA Event</h2>
+      <h2 align="center" style="text-transform: uppercase; color: #fcce0b;">Welcome To WIMA Event</h2>
       <input type="hidden" name="event_id" value="<?php echo $_GET['event_id']; ?>">
       <label for="fname"><b>Full Name</b></label>
       <input type="text" name="fullname" value="<?php if(isset($_POST['create'])){ echo $_POST['fullname']; } ?>" placeholder="Enter Your Fullname" required/>
