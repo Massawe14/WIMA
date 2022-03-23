@@ -216,7 +216,7 @@ span.psw {
     text-decoration: none;
 }
 footer {
-    width: 100vw;
+    width: 100%;
     height: auto;
     background-color: #111;
     text-align: center;
@@ -263,8 +263,8 @@ footer {
 }
 .footer-bottom {
     background-color: #fcce0b;
-    width: 100vw;
-    padding: 30px 0;
+    width: 100%;
+    padding: 20px 0;
     text-align: center;
 }
 .footer-bottom p {
@@ -382,11 +382,7 @@ else
       <input type="text" name="position" value="<?php if(isset($_POST['create'])){ echo $_POST['position']; } ?>" placeholder="Enter Your Position" required/>
       <input type="submit" value="Submit" name="create">
     </div>
-  </form>
-    <?php 
-}
-   ?>
-   <footer>
+    <footer>
         <div class="footer-content">
             <h4>Powered By</h4>
             <ul class="social-links">
@@ -398,6 +394,10 @@ else
             <p>copyright &copy;2022 Imperial Innovations</p>
         </div>
     </footer>
+  </form>
+    <?php 
+}
+   ?>
 </div>
 <script src="./html2canvas.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.3/html2canvas.js"></script>
