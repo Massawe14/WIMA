@@ -3,7 +3,7 @@ body {
     height: 100vh;
     overflow-y: hidden;
     overflow-x: hidden;
-    font-family: 'FSLucasPro', sans-serif;
+    font-family: 'FSLucasPro';
     background-color: rgb(255, 255, 255);; 
 }
 
@@ -89,6 +89,7 @@ body {
     background-color: white;
     display: none;
     text-align: center;
+    justify-content: center;
 }
 
 #full_name_text {
@@ -97,6 +98,7 @@ body {
     color: #fcce0b;
     padding-right: 300px;
     justify-content: center;
+    text-align: center;
 }
 
 .message {
@@ -104,4 +106,5 @@ body {
     font-size: 20px;
     color: #fcce0b;
     text-align: center;
+    justify-content: center;
 }
