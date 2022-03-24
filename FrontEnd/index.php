@@ -108,7 +108,7 @@
                     txt += char;
                 }
             });
-            function showOutput(full_name, phone_number, company, position, table_number) {
+            function showOutput(full_name, phone_number, company_name, position, table_number) {
                 speech.text = "Welcome";
                 window.speechSynthesis.speak(speech);
                 var dialog = document.getElementById("output_dialog");

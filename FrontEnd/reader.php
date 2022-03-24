@@ -24,11 +24,17 @@
 
     if ($full_name != "" && $phone_number != "" && $company_name != "" && $position != "" && $table_number != "") {
 
-      if (date("d-m-Y") === "23-03-2022") {
+      if (date("d-m-Y") === "24-03-2022") {
         $query = "INSERT INTO `eventlist`(`full_name`, `phone_number`, `company_name`, `position`, `table_number`) VALUES ('$full_name', '$phone_number', '$company_name', '$position', '$table_number')";
         $result = mysqli_query($conn, $query);
         if ($result) {
-          echo '{"full_name": "' .$full_name . '"}';
+          echo '{
+            "full_name": "' .$full_name . '",
+            "phone_number": "' .$phone_number . '",
+            "company_name": "' .$company_name . '",
+            "position": "' .$position . '",
+            "table_number": "' .$table_number . '"
+          }';
         }
         else{
           echo "Not attend";
@@ -37,7 +43,13 @@
         $query = "INSERT INTO `eventlist`(`full_name`, `phone_number`, `company_name`, `position`, `table_number`) VALUES ('$full_name', '$phone_number', '$company_name', '$position', '$table_number')";
         $result = mysqli_query($conn, $query);
         if ($result) {
-          echo '{"full_name": "' .$full_name . '"}';
+          echo '{
+            "full_name": "' .$full_name . '",
+            "phone_number": "' .$phone_number . '",
+            "company_name": "' .$company_name . '",
+            "position": "' .$position . '",
+            "table_number": "' .$table_number . '"
+          }';
         }
         else{
           echo "Not attend";
