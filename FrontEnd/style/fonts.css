@@ -1,14 +1,17 @@
-/* FSLucasPro-400 */
+/* cabin-regular - latin */
+
 @font-face {
     font-family: 'FSLucasPro';
     font-style: normal;
     font-weight: 400;
-    src: local(''), url('../fonts/FSLucasPro-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-    url('../fonts/FSLucasPro-regular.woff') format('woff');
+    src: local(''), url('../fonts/FSLucasPro-Bold.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+    url('../fonts/FSLucasPro-Bold.woff') format('woff');
     /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
-/* FSLucasPro-500 */
+
+/* cabin-500 - latin */
+
 @font-face {
     font-family: 'FSLucasPro';
     font-style: normal;
@@ -18,7 +21,9 @@
     /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
-/* FSLucasPro-600 */
+
+/* cabin-600 - latin */
+
 @font-face {
     font-family: 'FSLucasPro';
     font-style: normal;
@@ -28,7 +33,9 @@
     /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
-/* FSLucasPro-700 */
+
+/* cabin-700 - latin */
+
 @font-face {
     font-family: 'FSLucasPro';
     font-style: normal;

@@ -2,7 +2,7 @@
   date_default_timezone_set("Africa/Dar_es_Salaam");
   include('config/db.php');
 
-  $qrcode = $_POST['code']; 
+  $qrcode = $_POST['code'];
 
   $query = "SELECT * FROM qr_codes WHERE qrImage='$qrcode' LIMIT 1";
   $result = mysqli_query($conn, $query);
@@ -22,9 +22,8 @@
       $table_number = $row['table_number'];
     }
 
-    if ($full_name != "" && $phone_number != "" && $company_name != "" && $position != "" && $table_number != "") {
-
-      if (date("d-m-Y") === "24-03-2022") {
+    if ($full_name != "" && $phone_number != "" && $company_name != "" && $position != "" && $table_number != "") { 
+      if (date("d-m-Y") === "25-03-2022") {
         $query = "INSERT INTO `eventlist`(`full_name`, `phone_number`, `company_name`, `position`, `table_number`) VALUES ('$full_name', '$phone_number', '$company_name', '$position', '$table_number')";
         $result = mysqli_query($conn, $query);
         if ($result) {
@@ -39,7 +38,7 @@
         else{
           echo "Not attend";
         }
-      }else if (date("d-m-Y") === "27-03-2022") {
+      }else if (date("d-m-Y") === "26-03-2022") {
         $query = "INSERT INTO `eventlist`(`full_name`, `phone_number`, `company_name`, `position`, `table_number`) VALUES ('$full_name', '$phone_number', '$company_name', '$position', '$table_number')";
         $result = mysqli_query($conn, $query);
         if ($result) {
@@ -66,4 +65,5 @@
   else{
   	echo '{"error": "Not Authorized"}';
   }
+
 ?>
