@@ -247,14 +247,14 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 1rem 0 3rem 0;
+    margin: 1rem 0 2rem 0;
 }
 .social-links li {
-    margin: 0 10px;
+    margin: 0 30px;
 }
 .social-links a img {
-    width: 120px;
-    height: 70px;
+    width: 100px;
+    height: 50px;
 }
 .footer-bottom {
     background-color: #fcce0b;
